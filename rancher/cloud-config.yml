@@ -1,0 +1,15 @@
+#cloud-config
+runcmd:
+  -  sudo mkfs.ext4 -L RANCHER_STATE /dev/sda
+hostname : rancher
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCaoRdDjNzfXQIPzX+iEOx5Yf95QzpTTf4sA9oaQAFYbxb0TTf6Fe6cA00QhgtjTTuXGoANXM6Xo53I+GM9xQwicCZXBA7rQmm10XJHuN8TMmhEy1BjeVmT9rUYt6R4h6MVjAhgi8xpnzoxtb4+YFCCNLeNGfihI6e0k4UzmpVHE03znu4ga7tGqiDAl+PRZJtzOOqI57/MQeBx/6Buft+AKixSGMJ3pudffTln5UB8SbFLM4XqxcMMBLgidlcy1oNkksWmh3koP1IEt6l0y1RE+cAZg9x/is7u3n3I7EAbl5wqnLeFGe5h+HMd9ruDG56PTbA2lzkZ5D86EFLA3nT6Ycq1w+WPLzufCGgW/6kzosPtItRtVp0qGeXzZSE98rM7uMoal8Y/ZzdxFbCnbkWTqGRhT4jPu9FfA+74XVnydhg2WSaL9B5xg26Dj0GnTPq/gPzzslspJBcW6lqpzyuUNirqn5AFlwFj0O4gtZjWiL4YBDEmQGWTEZZtVKKl7y8= p0rkjello@x18
+rancher:
+  network:
+    interfaces:
+      eth*:
+        address: 10.10.1.90/24
+        gateway: 10.10.1.1
+    dns:
+      nameservers:
+        - 10.10.1.1
